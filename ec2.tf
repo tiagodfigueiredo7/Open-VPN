@@ -1,7 +1,18 @@
 data "aws_ami" "ubuntu" {
-  most_recent = true
-  # ubuntu ami account ID
-owners = ["099720109477"]
+
+    most_recent = true
+
+    filter {
+        name   = "name"
+        values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    }
+
+    filter {
+        name = "virtualization-type"
+        values = ["hvm"]
+    }
+
+    owners = ["099720109477"]
 }
 
 
@@ -14,7 +25,7 @@ resource "aws_instance" "Vpn_Grupo" {
   subnet_id                   = data.aws_subnet.gruporpnvpn.id                        # Criando Ec2 direcionando pra subnet correta de cada Vpc usando data.
 
   tags = {
-    Name = "GLIP-Server-Terraform"
+    Name = "Grupo_VPN"
 }
 }
 
