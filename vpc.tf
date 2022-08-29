@@ -1,4 +1,4 @@
-data "aws_subnet" "gruporpn" {
+data "aws_subnet" "gruporpnvpn" {
      id = "subnet-0bf5a858564489c5c"
 
 }
