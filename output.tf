@@ -1,3 +1,3 @@
 output "ip_address"{
-value = aws_instance.GLPI-Server.*.public_ip            
+value = aws_instance.Vpn_Grupo.*.public_ip            
 }
